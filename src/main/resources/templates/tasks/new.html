@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>タスク登録</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"
+	rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css"
+	rel="stylesheet" />
+
+<link rel="stylesheet" href="/css/tasks/app.css" />
+<script src="/js/tasks/new.js"></script>
+</head>
+
+
+<body>
+	<div class="container">
+		<h1>タスク登録</h1>
+		<form th:action="@{/tasks}" id="task-form" name="task-form"
+			th:method="post">
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label">タイトル</label> <input
+						class="form-control" type="text" name="title" id="title" />
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="description">タスクの内容</label>
+					<textarea class="form-control" name="description" id="description"
+						rows="10" aria-label="With textarea"></textarea>				
+				</div>
+
+				<div class="form-group">
+					<p>
+						<label class="control-label" for="scheduled_date">予定日</label> <input
+							class="form-control" id="scheduled_date" name="scheduled_date" autocomplete="off"
+							placeholder="YYYY/MM/DD" type="text" />
+				</div>
+
+				<div class="form-group ">
+					<label class="control-label" for="complete_date">完了日</label> <input
+						class="form-control" id="complete_date" name="complete_date" autocomplete="off"
+						placeholder="YYYY/MM/DD" type="text" />
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">優先順位</label>
+					<div>
+						<select class="dd-priority" name="priority">
+							<option value="1">High</option>
+							<option value="2">Medium</option>
+							<option value="3">Normal</option>
+							<option value="4">Low</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+			<div class="row">
+				<button class="btn btn-outline-success" type="submit"
+					style="margin-left: 15px;">登録</button>
+				<button type="button" class="btn btn-outline-success"
+					style="margin-left: 15px;" onclick="window.location.href='/tasks'">戻る</button>
+			</div>
+
+		</form>
+
+	</div>
+</body>
+</html>

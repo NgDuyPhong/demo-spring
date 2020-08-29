@@ -1,0 +1,9 @@
+.form-check-input {
+    position: absolute;
+    margin-top: .25rem;
+    margin-left: 0; 
+}
+
+#task-form .error {
+    color: red; #important
+}

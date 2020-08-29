@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+.btn-outline-danger {
+	margin-right: 34px
+}
+
+.btn-outline-primary  {
+	margin-left: 8px;
+}
+
+.button_action {
+	margin-bottom: 32px;
+	margin-top: 16pxl
+}
+
+.form-check {
+	position: relative;
+	display: block;
+	margin-left: 16px;
+}
+
+.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -60px;
+	margin-left: -60px;
+}
+
+table {
+	table-layout: auto;
+}
+
+.table-bordered th, .table-bordered td {
+	border: 1px solid #dee2e6;
+	align-content: center;
+	text-align: center;
+}
+
+.table-bordered thead th, .table-bordered thead td {
+	border-bottom-width: 2px;
+	text-align: center;
+}
+
+table.tableBodyScroll tbody {
+	display: block;
+	max-height: 600px;
+	overflow-y: scroll;
+}
+
+table.tableBodyScroll thead, table.tableBodyScroll tbody tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.error {
+	color: red !important;
+}
+#alertSuccess {
+	margin-right: 60px;
+	margin-top: 10px;
+}
+
+#form-index {
+	margin-top: 50px;
+}
+.table-date  {
+	width: 110px;
+}
+
+.table-priority {
+	width: 90px;
+}
+
+.table-action {
+	width: 60px;
+}
+
+.table-title {
+	min-width: 120px;
+}
+
+.row mx-lg-n6  {
+	margin-left: -80px; 
+	margin-right: -80px;
+}
+.btn-outline-danger  {
+	width: 100px;
+}

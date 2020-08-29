@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+
+<link rel="stylesheet" href="/css/bootstrap.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/tasks/index.js"></script>
+
+<link rel="stylesheet" href="/css/tasks/index.css" />
+
+<title>ToDoリスト</title>
+</head>
+
+<body>
+	<div class="col">
+		<div id="alertSuccess" class="alert alert-success  float-right"
+			style="display: none" role="alert">タスクが完了になりました。</div>
+		<div align="center" id="form-index">
+
+			<h1>タスク一覧</h1>
+
+			<div class="container px-lg-6">
+				<div class="row button_action">
+					<div class="col-lg-12">
+						<button type="button" class="btn btn-outline-primary float-left"
+							onclick="redirectCreate()">タスク登録</button>
+
+						<button type="button" class="btn btn-outline-danger float-right"
+							onclick="deleteListId()">削除</button>
+					</div>
+
+				</div>
+				<div class="row mx-lg-n6">
+
+					<p></p>
+					<p></p>
+					<div class="col py-3 px-lg-6 border bg-light">
+						<h2>未完了タスク</h2>
+						<div th:block
+							th:replace="~{tasks/table_uncomplete:: list-uncomplete(${listTasksUnComplete}) }"
+							id="view-table-uncomplete" class="view-table-uncomplete"></div>
+					</div>
+
+					<div class="col py-3 px-lg-6 border bg-light">
+						<h2>完了タスク</h2>
+						<div th:block
+							th:replace="~{tasks/table_complete:: list-complete(${listTasksComplete}) }"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

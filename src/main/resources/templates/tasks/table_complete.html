@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<script src="/js/tasks/index.js"></script>
+<link rel="stylesheet" href="/css/tasks/index.css" />
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="list-complete(listTasksComplete)"
+		id="table-completed" class="table-completed">
+		<div th:if="${#lists.isEmpty(listTasksComplete)}">
+			<div>完了タスクがありません</div>
+		</div>
+		<div th:unless="${#lists.isEmpty(listTasksComplete)}"
+			class="table-responsive-md">
+			<table class="table table-hover table-bordered tableBodyScroll">
+				<thead>
+					<tr>
+						<th class="table-title">タイトル</th>
+						<th class="table-date">予定日</th>
+						<th class="table-date">完了日</th>
+						<th class="table-priority">優先順位</th>
+
+						<th class="table-action">削除</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="task : ${listTasksComplete}">
+						<td th:text=${task.title} class="table-title"
+							th:onclick="'redirectEdit(\'' +${task.id} +'\')'">Title</td>
+						<td th:text="${task.scheduled_date}" class="table-date"
+							th:onclick="'redirectEdit(\'' +${task.id} +'\')'">予定日</td>
+						<td th:text="${task.complete_date}" class="table-date"
+							th:onclick="'redirectEdit(\'' +${task.id} +'\')'">完了日</td>
+						<td th:switch="${task.priority}" class="table-priority"
+							th:onclick="'redirectEdit(\'' +${task.id} +'\')'"><label
+							th:case="1">High</label> <label th:case="2">Medium</label> <label
+							th:case="3">Normal</label> <label th:case="4">Low</label></td>
+						<td class="table-action"
+							th:onclick="'getListIdDelete(\'' +${task.id} +'\')'"><input
+							class="checkbox_delete" type="checkbox" th:data-id="${task.id}"
+							th:name="'cb_delete'+ ${task.id}" th:id="'cb_delete'+ ${task.id}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>タスク編集</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"
+	rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css"
+	rel="stylesheet" />
+
+<link rel="stylesheet" href="/css/tasks/app.css" />
+<script src="/js/tasks/edit.js"></script>
+</head>
+
+
+<body>
+	<div class="container">
+		<h1>タスク変更・閲覧</h1>
+		<form th:action="@{/tasks/update/{id}(id=*{id})}" th:method="post"
+			id="task-form" name="task-form" th:object="${task}">
+			<div class="form-group">
+				<label class="control-label">タイトル</label> <input
+					class="form-control" type="text" th:field="*{title}" />
+			</div>
+
+			<div class="input-group">
+				<label class="control-label" for="description">タスクの内容</label>
+				<textarea class="form-control" name="description"
+					th:field="*{description}" rows="10" aria-label="With textarea"></textarea>
+			</div>
+
+			<div class="form-group ">
+				<p>
+					<label class="control-label" for="scheduled_date" style="margin-top: 15px;">予定日</label> <input
+						class="form-control" id="scheduled_date" name="scheduled_date"
+						autocomplete="off" placeholder="YYYY/MM/DD" type="text"
+						th:field="*{scheduled_date}" />
+				</p>
+			</div>
+
+			<div class="form-group ">
+				<label class="control-label" for="complete_date">完了日</label> <input
+					class="form-control" id="complete_date" name="complete_date"
+					autocomplete="off" placeholder="YYYY/MM/DD" type="text"
+					th:field="*{complete_date}" />
+			</div>
+
+			<div class="form-group">
+				<label class="control-label">優先順位</label>
+				<div>
+					<select class="dd-priority" th:field="*{priority}" name="priority">
+						<option value="1">High</option>
+						<option value="2">Medium</option>
+						<option value="3">Normal</option>
+						<option value="4">Low</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="pull-right form-row">
+				<button class="btn btn-outline-success" type="submit">変更</button>
+				<button class="btn btn-outline-success"
+					onclick="window.location.href='/tasks'" type="button">戻る</button>
+			</div>
+
+		</form>
+
+	</div>
+</body>
+</html>
